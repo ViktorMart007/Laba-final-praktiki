@@ -26,10 +26,12 @@ namespace proba_finala
 
             List<Note> array = new List<Note>();
 
-            Note temp;
+             Note temp;
+            
 
             while (true)
             {
+                
 
                 Console.Write("1) Создание записи 2)Редактирование записи 3) Удаление записи  4) Просмотр записи");
                 Console.Write(" 5) просмотр всех записей с краткой информацией 6) выход) : ");
@@ -42,12 +44,14 @@ namespace proba_finala
                 }
 
                 long mode = Convert.ToInt64(buf_1);
-
+               
                 if (mode == 1)
                 {
+                    temp = new Note();
+
                     Console.Write("Введите Фамилию: ");
 
-                    temp = new Note();
+                   
                     temp.familya = Console.ReadLine();
 
                     if (temp.familya == "")
@@ -116,6 +120,7 @@ namespace proba_finala
                                     Console.Write("Введите год рождения : ");
                                     buf = Console.ReadLine();
 
+
                                     if (buf == "" || buf == " ")
                                     {
                                         buf = "0";
@@ -158,7 +163,11 @@ namespace proba_finala
 
                         Console.Write("Выберете номер пользователя: ");
 
+
+
                         int g = Convert.ToInt32(Console.ReadLine());
+
+
 
 
                         if (g > array.Count - 1 || g < 0)
@@ -179,7 +188,7 @@ namespace proba_finala
                             {
                                 Console.Write("Введите Фамилию: ");
 
-                                temp = new Note();
+                             //   temp = new Note();
                                 temp.familya = Console.ReadLine();
                                 if (temp.familya == "")
                                 {
@@ -197,7 +206,7 @@ namespace proba_finala
                             {
                                 Console.Write("Введите Имя: ");
 
-                                temp = new Note();
+                              //  temp = new Note();
                                 temp.name = Console.ReadLine();
                                 if (temp.name == "")
                                 {
@@ -215,7 +224,7 @@ namespace proba_finala
                             {
                                 Console.Write("Введите Отчество: ");
 
-                                temp = new Note();
+                            //    temp = new Note();
                                 temp.ot4 = Console.ReadLine();
                                 array.Insert(g, temp);
                                 array.RemoveAt(g + 1);
@@ -225,7 +234,7 @@ namespace proba_finala
                             {
                                 Console.Write("Введите телефон: ");
 
-                                temp = new Note();
+                             //   temp = new Note();
                                 string buf = Console.ReadLine();
 
                                 if (buf == "" || buf == " ")
@@ -245,7 +254,7 @@ namespace proba_finala
                             {
                                 Console.Write("Введите страну: ");
 
-                                temp = new Note();
+                             //   temp = new Note();
                                 temp.strana = Console.ReadLine();
                                 if (temp.strana == "")
                                 {
@@ -263,7 +272,7 @@ namespace proba_finala
                             {
                                 Console.Write("Введите день рождения: ");
 
-                                temp = new Note();
+                            //    temp = new Note();
                                 string buf = Console.ReadLine();
 
                                 if (buf == "" || buf == " ")
@@ -281,7 +290,7 @@ namespace proba_finala
                             else if (mode_1 == 7)
                             {
                                 Console.Write("Введите месяц рождения: ");
-                                temp = new Note();
+                             //   temp = new Note();
                                 string buf = Console.ReadLine();
 
                                 if (buf == "" || buf == " ")
@@ -298,7 +307,7 @@ namespace proba_finala
                             else if (mode_1 == 8)
                             {
                                 Console.Write("Введите год рождения : ");
-                                temp = new Note();
+                             //   temp = new Note();
 
                                 string buf = Console.ReadLine();
 
@@ -315,7 +324,7 @@ namespace proba_finala
                             else if (mode_1 == 9)
                             {
                                 Console.Write("Введите организацию: ");
-                                temp = new Note();
+                            //    temp = new Note();
                                 temp.organisation = Console.ReadLine();
                                 array.Add(temp);
                             }
@@ -323,7 +332,7 @@ namespace proba_finala
                             else if (mode_1 == 10)
                             {
                                 Console.Write("Введите должность: ");
-                                temp = new Note();
+                            //    temp = new Note();
                                 temp.doljnost = Console.ReadLine();
                                 array.Insert(g, temp);
                                 array.RemoveAt(g + 1);
@@ -332,7 +341,7 @@ namespace proba_finala
                             else if (mode_1 == 11)
                             {
                                 Console.Write("Введите заметки: ");
-                                temp = new Note();
+                           //     temp = new Note();
                                 temp.zametki = Console.ReadLine();
                                 array.Insert(g, temp);
                                 array.RemoveAt(g + 1);

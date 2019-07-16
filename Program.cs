@@ -17,22 +17,15 @@ namespace proba_finala
         public string doljnost;
         public string zametki;
     }
-
     class Program
     {
-
         static void Main(string[] args)
         {
 
             List<Note> array = new List<Note>();
-
-             Note temp;
-            
-
+            Note temp;
             while (true)
             {
-                
-
                 Console.Write("1) Создание записи 2)Редактирование записи 3) Удаление записи  4) Просмотр записи");
                 Console.Write(" 5) просмотр всех записей с краткой информацией 6) выход) : ");
 
@@ -44,14 +37,13 @@ namespace proba_finala
                 }
 
                 long mode = Convert.ToInt64(buf_1);
-               
+
                 if (mode == 1)
                 {
                     temp = new Note();
 
-                    Console.Write("Введите Фамилию: ");
+                    Console.Write("Введите Фамилию(Обязательное поле): ");
 
-                   
                     temp.familya = Console.ReadLine();
 
                     if (temp.familya == "")
@@ -62,7 +54,7 @@ namespace proba_finala
                     else
                     {
 
-                        Console.Write("Введите Имя: ");
+                        Console.Write("Введите Имя(обязательное поле): ");
                         temp.name = Console.ReadLine();
 
                         if (temp.name == "")
@@ -76,7 +68,7 @@ namespace proba_finala
                             Console.Write("Введите Отчество: ");
                             temp.ot4 = Console.ReadLine();
 
-                            Console.Write("Введите телефон: ");
+                            Console.Write("Введите телефон(обязательное поле): ");
                             string buf = Console.ReadLine();
 
                             if (buf == "" || buf == " ")
@@ -88,7 +80,7 @@ namespace proba_finala
 
                                 temp.telefon = Convert.ToInt64(buf);
 
-                                Console.Write("Введите страну: ");
+                                Console.Write("Введите страну(обязательное поле): ");
                                 temp.strana = Console.ReadLine();
 
                                 if (temp.strana == "")
@@ -137,6 +129,8 @@ namespace proba_finala
                                     temp.zametki = Console.ReadLine();
 
                                     array.Add(temp);
+
+
                                 }
                             }
                         }
@@ -158,16 +152,12 @@ namespace proba_finala
                         for (int j = 0; j < array.Count; j++)
                         {
 
-                            Console.WriteLine(array[j].familya + "(" + j + ")");
+                            Console.WriteLine(array[j].familya + " " + array[j].name + "(" + j + ")");
                         }
 
                         Console.Write("Выберете номер пользователя: ");
 
-
-
                         int g = Convert.ToInt32(Console.ReadLine());
-
-
 
 
                         if (g > array.Count - 1 || g < 0)
@@ -178,180 +168,181 @@ namespace proba_finala
 
                         else
                         {
-                            Console.Write("1)изменение фамилии 2)изменение имени 3)изменение отчества 4)изменение телефона 5)изменение страны 6)изменение дня рождения 7)изменение месяца рождения 8)изменение года рождения 9)изменение организации 10)изменение должности 11)изменение заметки 12)возврат в меню: ");
-
-                            int mode_1 = Convert.ToInt32(Console.ReadLine());
-
-
-                            if (mode_1 == 1)
-
+                            while (true)
                             {
-                                Console.Write("Введите Фамилию: ");
+                                Console.Write("1)изменение фамилии 2)изменение имени 3)изменение отчества 4)изменение телефона 5)изменение страны 6)изменение дня рождения 7)изменение месяца рождения 8)изменение года рождения 9)изменение организации 10)изменение должности 11)изменение заметки 12)возврат в меню: ");
 
-                             //   temp = new Note();
-                                temp.familya = Console.ReadLine();
-                                if (temp.familya == "")
+                                int mode_1 = Convert.ToInt32(Console.ReadLine());
+
+                                if (mode_1 == 1)
+
                                 {
-                                    Console.WriteLine("Нужно заполнить поле(Фамилия)!!");
+                                    Console.Write("Введите Фамилию: ");
+
+                                    Note str = array[g];
+                                    str.familya = Console.ReadLine();
+                                    if (str.familya == "")
+                                    {
+                                        Console.WriteLine("Нужно заполнить поле(Фамилия)!!");
+                                    }
+                                    else
+                                    {
+                                        array[g] = str;
+
+                                    }
                                 }
 
-                                else
+                                else if (mode_1 == 2)
                                 {
-                                    array.Insert(g, temp);
-                                    array.RemoveAt(g + 1);
-                                }
-                            }
+                                    Console.Write("Введите Имя: ");
 
-                            else if (mode_1 == 2)
-                            {
-                                Console.Write("Введите Имя: ");
+                                    Note str = array[g];
+                                    str.name = Console.ReadLine();
+                                    if (str.name == "")
+                                    {
+                                        Console.WriteLine("Нужно заполнить обязательное поле(Имя)!!");
+                                    }
+                                    else
+                                    {
+                                        array[g] = str;
 
-                              //  temp = new Note();
-                                temp.name = Console.ReadLine();
-                                if (temp.name == "")
-                                {
-                                    Console.WriteLine("Нужно заполнить поле(Имя)!!");
-                                }
-
-                                else
-                                {
-                                    array.Insert(g, temp);
-                                    array.RemoveAt(g + 1);
-                                }
-                            }
-
-                            else if (mode_1 == 3)
-                            {
-                                Console.Write("Введите Отчество: ");
-
-                            //    temp = new Note();
-                                temp.ot4 = Console.ReadLine();
-                                array.Insert(g, temp);
-                                array.RemoveAt(g + 1);
-                            }
-
-                            else if (mode_1 == 4)
-                            {
-                                Console.Write("Введите телефон: ");
-
-                             //   temp = new Note();
-                                string buf = Console.ReadLine();
-
-                                if (buf == "" || buf == " ")
-                                {
-                                    Console.WriteLine("Нужно заполнить обязательное поле (Телефон) ");
+                                    }
                                 }
 
-                                else
+                                else if (mode_1 == 3)
                                 {
-                                    temp.telefon = Convert.ToInt64(buf);
-                                    array.Insert(g, temp);
-                                    array.RemoveAt(g + 1);
-                                }
-                            }
+                                    Console.Write("Введите Отчество: ");
 
-                            else if (mode_1 == 5)
-                            {
-                                Console.Write("Введите страну: ");
+                                    Note str = array[g];
+                                    str.ot4 = Console.ReadLine();
+                                    array[g] = str;
 
-                             //   temp = new Note();
-                                temp.strana = Console.ReadLine();
-                                if (temp.strana == "")
-                                {
-                                    Console.WriteLine("Нужно заполнить поле(Страна)!!");
                                 }
 
-                                else
+                                else if (mode_1 == 4)
                                 {
-                                    array.Insert(g, temp);
-                                    array.RemoveAt(g + 1);
+                                    Console.Write("Введите телефон: ");
+
+                                    string buf = Console.ReadLine();
+
+                                    if (buf == "" || buf == " ")
+                                    {
+                                        Console.WriteLine("Заполните обязательное поле(телефон)!!");
+                                    }
+                                    else
+                                    {
+                                        Note str = array[g];
+                                        str.telefon = Convert.ToInt64(buf);
+                                        array[g] = str;
+                                    }
+                                }
+
+                                else if (mode_1 == 5)
+                                {
+                                    Console.Write("Введите страну: ");
+
+                                    Note str = array[g];
+                                    str.strana = Console.ReadLine();
+                                    if (str.strana == "")
+                                    {
+                                        Console.WriteLine("Нужно заполнить обязательное поле(Страна)!!");
+                                    }
+                                    else
+                                    {
+                                        array[g] = str;
+
+                                    }
+                                }
+
+                                else if (mode_1 == 6)
+                                {
+                                    Console.Write("Введите день рождения: ");
+
+                                    string buf = Console.ReadLine();
+
+                                    if (buf == "" || buf == " ")
+                                    {
+                                        buf = "0";
+                                    }
+                                    else
+                                    {
+                                        Note str = array[g];
+                                        str.day = Convert.ToInt32(buf);
+                                        array[g] = str;
+                                    }
+                                }
+
+                                else if (mode_1 == 7)
+                                {
+                                    Console.Write("Введите месяц рождения: ");
+                                    string buf = Console.ReadLine();
+
+                                    if (buf == "" || buf == " ")
+                                    {
+                                        buf = "0";
+                                    }
+                                    else
+                                    {
+                                        Note str = array[g];
+                                        str.mes = Convert.ToInt32(buf);
+                                        array[g] = str;
+                                    }
+                                }
+
+                                else if (mode_1 == 8)
+                                {
+                                    Console.Write("Введите год рождения : ");
+                                    string buf = Console.ReadLine();
+
+                                    if (buf == "" || buf == " ")
+                                    {
+                                        buf = "0";
+                                    }
+                                    else
+                                    {
+                                        Note str = array[g];
+                                        str.god = Convert.ToInt32(buf);
+                                        array[g] = str;
+                                    }
+                                }
+
+                                else if (mode_1 == 9)
+                                {
+                                    Console.Write("Введите организацию: ");
+
+                                    Note str = array[g];
+                                    str.organisation = Console.ReadLine();
+
+                                    array[g] = str;
+
+                                }
+
+                                else if (mode_1 == 10)
+                                {
+                                    Console.Write("Введите должность: ");
+
+                                    Note str = array[g];
+                                    str.doljnost = Console.ReadLine();
+
+                                    array[g] = str;
+                                }
+
+                                else if (mode_1 == 11)
+                                {
+                                    Console.Write("Введите заметки: ");
+
+                                    Note str = array[g];
+                                    str.zametki = Console.ReadLine();
+
+                                    array[g] = str;
+                                }
+
+                                else if (mode_1 == 12)
+                                {
+                                    Console.Write("Возврат в меню ");
+                                    break;
                                 }
                             }
-
-                            else if (mode_1 == 6)
-                            {
-                                Console.Write("Введите день рождения: ");
-
-                            //    temp = new Note();
-                                string buf = Console.ReadLine();
-
-                                if (buf == "" || buf == " ")
-                                {
-                                    buf = "0";
-                                }
-
-                                temp.day = Convert.ToInt32(buf);
-
-                                array.Insert(g, temp);
-                                array.RemoveAt(g + 1);
-
-                            }
-
-                            else if (mode_1 == 7)
-                            {
-                                Console.Write("Введите месяц рождения: ");
-                             //   temp = new Note();
-                                string buf = Console.ReadLine();
-
-                                if (buf == "" || buf == " ")
-                                {
-                                    buf = "0";
-                                }
-                                temp.mes = Convert.ToInt32(buf);
-                                array.Insert(g, temp);
-                                array.RemoveAt(g + 1);
-
-                            }
-
-
-                            else if (mode_1 == 8)
-                            {
-                                Console.Write("Введите год рождения : ");
-                             //   temp = new Note();
-
-                                string buf = Console.ReadLine();
-
-                                if (buf == "" || buf == " ")
-                                {
-                                    buf = "0";
-                                }
-                                temp.god = Convert.ToInt32(buf);
-
-                                array.Insert(g, temp);
-                                array.RemoveAt(g + 1);
-                            }
-
-                            else if (mode_1 == 9)
-                            {
-                                Console.Write("Введите организацию: ");
-                            //    temp = new Note();
-                                temp.organisation = Console.ReadLine();
-                                array.Add(temp);
-                            }
-
-                            else if (mode_1 == 10)
-                            {
-                                Console.Write("Введите должность: ");
-                            //    temp = new Note();
-                                temp.doljnost = Console.ReadLine();
-                                array.Insert(g, temp);
-                                array.RemoveAt(g + 1);
-                            }
-
-                            else if (mode_1 == 11)
-                            {
-                                Console.Write("Введите заметки: ");
-                           //     temp = new Note();
-                                temp.zametki = Console.ReadLine();
-                                array.Insert(g, temp);
-                                array.RemoveAt(g + 1);
-                            }
-
-                            else if (mode_1 == 12)
-                            {
-                                Console.Write("Возврат в меню ");
-                            }
-
                         }
                     }
                 }
@@ -367,19 +358,16 @@ namespace proba_finala
 
                     else
                     {
-
                         Console.Write("Записанные люди: ");
 
                         for (int j = 0; j < array.Count; j++)
                         {
-
-                            Console.WriteLine(array[j].familya + "(" + j + ")");
-
+                            Console.WriteLine(array[j].familya + " " + array[j].name + "(" + j + ")");
                         }
 
                         Console.Write("Выберете номер пользователя: ");
                         int g = Convert.ToInt32(Console.ReadLine());
-                        int p = g + 1;
+
                         if (g > array.Count - 1 || g < 0)
                         {
                             Console.WriteLine("Введен номер несуществующего пользователя возврат в меню ");
@@ -409,7 +397,7 @@ namespace proba_finala
                         for (int j = 0; j < array.Count; j++)
                         {
 
-                            Console.WriteLine(array[j].familya + "(" + j + ")");
+                            Console.WriteLine(array[j].familya + " " + array[j].name + "(" + j + ")");
                         }
 
                         Console.Write("Выберете номер пользователя: ");
@@ -419,13 +407,10 @@ namespace proba_finala
                         {
                             Console.WriteLine("Введен номер несуществующего пользователя возврат в меню ");
                             Console.ReadKey();
-
                         }
 
                         else
                         {
-
-
                             Console.Write("Фамилия: ");
                             Console.Write(array[g].familya);
                             Console.WriteLine();
@@ -503,13 +488,10 @@ namespace proba_finala
                         }
                     }
                 }
-
-
                 else if (mode == 6)
                 {
                     break;
                 }
-
             }
         }
     }

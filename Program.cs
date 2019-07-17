@@ -489,11 +489,11 @@ namespace proba_finala
 
                     else
                     {
-                        Console.Write("Записанные люди: ");
+                      
                         while (true)
                         {
-                            Console.WriteLine("Вывод Информации Записи:");
-                            Console.Write("1)Поиск индекса записи по фамилии и имени 2)поиск индекса выводом всех записей 3)Вывод пользователя (нужно знать Индекс) 4)Выход :");
+                            Console.WriteLine("Просмотр записи");
+                            Console.Write("1)Поиск индекса записи по фамилии и имени 2)поиск индекса выводом всех записей 3)Просмотр записи (нужно знать Индекс) 4)Выход :");
 
                             int mode1 = Convert.ToInt32(Console.ReadLine());
 
@@ -523,6 +523,7 @@ namespace proba_finala
 
                             else if (mode1 == 2)
                             {
+                                Console.WriteLine("Записанные люди");
                                 for (int j = 0; j < array.Count; j++)
                                 {
 

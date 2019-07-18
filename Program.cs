@@ -170,16 +170,47 @@ namespace proba_finala
 
                                 int index = array.FindIndex(s => string.Equals(s.familya, needle, StringComparison.CurrentCultureIgnoreCase));
 
-                                Console.WriteLine("Предполагаемый индекс контакта(фамилия)" + index);
-
+                             
                                 int index1 = array.FindIndex(s => string.Equals(s.name, needle1, StringComparison.CurrentCultureIgnoreCase));
 
-                                Console.WriteLine("Предполагаемый индекс контакта(имя)" + index1);
-                                Console.WriteLine("ЕСЛИ ОДИН ИНДЕКС Меньше другого,ВЫБИРАЙТЕ БОЛЬШИЙ индекс (если не введены ошибки при вводе");
-                                Console.WriteLine("ЕСЛИ ОБА ИНДЕКСА равны -1 то пользователя не существует)");
-                                Console.WriteLine("ЕСЛИ ИНДЕКСЫ  СОВПАДАЮТ(но не -1) то ИНДЕКС пользователя НАЙДЕН)");
-                                Console.WriteLine("ЕСЛИ ИНДЕКС РАВЕН -1 ОШИБКА ПРИ ВВОДЕ");
+                              
+                                if (index == index1 && index1 != -1 && index != -1)
+                                {
+                                    Console.WriteLine("индекс 100% равен: " + index);
+                                }
+                                else if (index == index1 && index == -1 && index1 == -1)
+                                {
+                                    Console.WriteLine("записи не существует или введены неверно фамилия и имя: ");
+                                }
 
+
+                                else if (index > index1 && index != -1 && index1 != -1)
+                                {
+                                    Console.WriteLine("индекс равен: " + index);
+                                }
+
+                                else if (index1 > index && index1 != -1 && index != -1)
+                                {
+                                    Console.WriteLine("индекс равен: " + index1);
+                                }
+
+                                else if (index==-1)
+                                {
+                                    Console.WriteLine("Ошибка при записи фамилии ");
+                                }
+                                else if (index1 == -1)
+                                {
+                                    Console.WriteLine("Ошибка при записи Имени ");
+                                }
+
+                              
+                                //Console.WriteLine("Предполагаемый индекс контакта(фамилия)" + index);
+                                //Console.WriteLine("Предполагаемый индекс контакта(имя)" + index1);
+                                //Console.WriteLine("ЕСЛИ ОДИН ИНДЕКС Меньше другого,ВЫБИРАЙТЕ БОЛЬШИЙ индекс (если не введены ошибки при вводе");
+                                //Console.WriteLine("ЕСЛИ ОБА ИНДЕКСА равны -1 то пользователя не существует)");
+                                //Console.WriteLine("ЕСЛИ ИНДЕКСЫ  СОВПАДАЮТ(но не -1) то ИНДЕКС пользователя НАЙДЕН)");
+                                //Console.WriteLine("ЕСЛИ ИНДЕКС РАВЕН -1 ОШИБКА ПРИ ВВОДЕ");
+                                
                             }
 
                             else if (mode1 == 2)
@@ -424,23 +455,54 @@ namespace proba_finala
 
                                     var needle1 = Console.ReadLine();
 
-
-
                                     int index = array.FindIndex(s => string.Equals(s.familya, needle, StringComparison.CurrentCultureIgnoreCase));
 
-
-
-                                    Console.WriteLine("Предполагаемый индекс контакта(фамилия)" + index);
-
-
+                                    
 
                                     int index1 = array.FindIndex(s => string.Equals(s.name, needle1, StringComparison.CurrentCultureIgnoreCase));
 
-                                    Console.WriteLine("Предполагаемый индекс контакта(имя)" + index1);
-                                    Console.WriteLine("ЕСЛИ ОДИН ИНДЕКС Меньше другого,ВЫБИРАЙТЕ БОЛЬШИЙ индекс (если не введены ошибки при вводе");
-                                    Console.WriteLine("ЕСЛИ ОБА ИНДЕКСА равны -1 то пользователя не существует)");
-                                    Console.WriteLine("ЕСЛИ ИНДЕКСЫ  СОВПАДАЮТ(но не -1) то ИНДЕКС пользователя НАЙДЕН)");
-                                    Console.WriteLine("ЕСЛИ ИНДЕКС РАВЕН -1 ОШИБКА ПРИ ВВОДЕ");
+                                   
+
+
+
+                                    if (index == index1 && index1 != -1 && index != -1)
+                                    {
+                                        Console.WriteLine("индекс 100% равен: " + index);
+                                    }
+                                    else if (index == index1 && index == -1 && index1 == -1)
+                                    {
+                                        Console.WriteLine("записи не существует или введены неверно фамилия и имя: ");
+                                    }
+
+
+                                    else if (index > index1 && index != -1 && index1 != -1)
+                                    {
+                                        Console.WriteLine("индекс равен: " + index);
+                                    }
+
+                                    else if (index1 > index && index1 != -1 && index != -1)
+                                    {
+                                        Console.WriteLine("индекс равен: " + index1);
+                                    }
+
+                                    else if (index == -1)
+                                    {
+                                        Console.WriteLine("Ошибка при записи фамилии ");
+                                    }
+                                    else if (index1 == -1)
+                                    {
+                                        Console.WriteLine("Ошибка при записи Имени ");
+                                    }
+
+                                  
+                                  //  Console.WriteLine("Предполагаемый индекс контакта(фамилия)" + index);
+                                    //Console.WriteLine("Предполагаемый индекс контакта(имя)" + index1);
+
+                                    //Console.WriteLine("ЕСЛИ ОДИН ИНДЕКС Меньше другого,ВЫБИРАЙТЕ БОЛЬШИЙ индекс (если не введены ошибки при вводе");
+                                    //Console.WriteLine("ЕСЛИ ОБА ИНДЕКСА равны -1 то пользователя не существует)");
+                                    //Console.WriteLine("ЕСЛИ ИНДЕКСЫ  СОВПАДАЮТ(но не -1) то ИНДЕКС пользователя НАЙДЕН)");
+                                    //Console.WriteLine("ЕСЛИ ИНДЕКС РАВЕН -1 ОШИБКА ПРИ ВВОДЕ");
+                                   
 
                                 }
                             }
@@ -489,11 +551,11 @@ namespace proba_finala
 
                     else
                     {
-                      
+
                         while (true)
                         {
-                            Console.WriteLine("Просмотр записи");
-                            Console.Write("1)Поиск индекса записи по фамилии и имени 2)поиск индекса выводом всех записей 3)Просмотр записи (нужно знать Индекс) 4)Выход :");
+                            Console.WriteLine("Просмотр записи:");
+                            Console.Write("1)Поиск индекса записи по фамилии и имени 2)поиск индекса выводом всех записей 3)Просмотр записи записи (нужно знать Индекс) 4)Выход :");
 
                             int mode1 = Convert.ToInt32(Console.ReadLine());
 
@@ -501,24 +563,59 @@ namespace proba_finala
 
                             {
                                 Console.Write("Введите Фамилию: ");
-
                                 var needle = Console.ReadLine();
-
                                 Console.Write("Введите Имя: ");
 
                                 var needle1 = Console.ReadLine();
 
                                 int index = array.FindIndex(s => string.Equals(s.familya, needle, StringComparison.CurrentCultureIgnoreCase));
 
-                                Console.WriteLine("Предполагаемый индекс контакта(фамилия)" + index);
+                                
 
                                 int index1 = array.FindIndex(s => string.Equals(s.name, needle1, StringComparison.CurrentCultureIgnoreCase));
 
-                                Console.WriteLine("Предполагаемый индекс контакта(имя)" + index1);
-                                Console.WriteLine("ЕСЛИ ОДИН ИНДЕКС Меньше другого,ВЫБИРАЙТЕ БОЛЬШИЙ индекс (если не введены ошибки при вводе");
-                                Console.WriteLine("ЕСЛИ ОБА ИНДЕКСА равны -1 то пользователя не существует)");
-                                Console.WriteLine("ЕСЛИ ИНДЕКСЫ  СОВПАДАЮТ(но не -1) то ИНДЕКС пользователя НАЙДЕН)");
-                                Console.WriteLine("ЕСЛИ ИНДЕКС РАВЕН -1 ОШИБКА ПРИ ВВОДЕ");
+                                
+
+
+
+                                if (index == index1 && index1 != -1 && index != -1)
+                                {
+                                    Console.WriteLine("индекс 100% равен: " + index);
+                                }
+                                else if (index == index1 && index == -1 && index1 == -1)
+                                {
+                                    Console.WriteLine("записи не существует или введены неверно фамилия и имя: ");
+                                }
+
+
+                                else if (index > index1 && index != -1 && index1 != -1)
+                                {
+                                    Console.WriteLine("индекс равен: " + index);
+                                }
+
+                                else if (index1 > index && index1 != -1 && index != -1)
+                                {
+                                    Console.WriteLine("индекс равен: " + index1);
+                                }
+
+                                else if (index == -1)
+                                {
+                                    Console.WriteLine("Ошибка при записи фамилии ");
+                                }
+                                else if (index1 == -1)
+                                {
+                                    Console.WriteLine("Ошибка при записи Имени ");
+                                }
+
+                                
+                               
+                               // Console.WriteLine("Предполагаемый индекс контакта(фамилия)" + index);
+                                //Console.WriteLine("Предполагаемый индекс контакта(имя)" + index1);
+                                //Console.WriteLine("ЕСЛИ ОДИН ИНДЕКС Меньше другого,ВЫБИРАЙТЕ БОЛЬШИЙ индекс (если не введены ошибки при вводе");
+                                //Console.WriteLine("ЕСЛИ ОБА ИНДЕКСА равны -1 то пользователя не существует)");
+                                //Console.WriteLine("ЕСЛИ ИНДЕКСЫ  СОВПАДАЮТ(но не -1) то ИНДЕКС пользователя НАЙДЕН)");
+                                //Console.WriteLine("ЕСЛИ ИНДЕКС РАВЕН -1 ОШИБКА ПРИ ВВОДЕ");
+                                
                             }
 
                             else if (mode1 == 2)
@@ -531,7 +628,7 @@ namespace proba_finala
                                 }
                             }
 
-                            else if (mode == 3)
+                            else if (mode1 == 3)
                             {
 
                                 Console.Write("Выберете номер пользователя: ");
